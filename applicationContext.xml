@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- my context file -->
+    <!--context:property-placeholder location="classpath:phone.properties"/-->
+
+    <!-- my bean -->
+    <bean id = "phone"
+          class="com.alicer.springdemo.iPhone">
+        <constructor-arg ref="cpu"/>
+    </bean>
+
+    <bean id = "phone1"
+          class="com.alicer.springdemo.AndroidPhone">
+
+        <!-- setter injection-->
+        <property name="mCPU" ref="cpu1"/>
+        <property name="brand" value="Samsung"/>
+        <property name="country" value="US"/>
+    </bean>
+
+    <bean id="cpu" class="com.alicer.springdemo.Intel"/>
+    <bean id="cpu1" class="com.alicer.springdemo.ARM"/>
+
+
+
+</beans>
